@@ -1,0 +1,65 @@
+Project Check in #2
+Title: Best Model for Classification and Prediction of Housing Prices
+Who: Kunj Padh (kpadh), Cruz Fernandez (cferna12), Akshaan Parikh (aparik15)
+Introduction: 
+What problem are you trying to solve and why?
+In our final project, we are trying to solve a classification problem. All of our group members enjoyed practicing image classification in earlier assignments, and we wanted to build off our previous learnings and explore classification with further depth. This time, we will be implementing a multi-label classification using quantitative data on housing prices in the United States.
+If you are doing something new, detail how you arrived at this topic and what motivated you.
+Once we had decided to pursue a classification problem, we first eliminated any image classification problems, since that was most similar to what we had already learned in previous assignments. We knew that we wanted to predict labels for a variable X based on some combination of other variables. Thus, we searched for datasets with >10 categories that were numbers and/or text, so that we could test our models using different combinations of explanatory variables. We also searched for datasets with >1,000 entries, so that we had enough room to adequately  train & test our model. After searching for data that matched this criteria, we stumbled upon a dataset for homes in America, which includes price per home along with several other categories (square footage, number of bedrooms, zip code, etc.). We realized that we could use these other categories to classify the houses by price ranges, allowing for multiple labels. After discussing it as a team, we found that everyone was interested in this idea & so we agreed to move forward.
+What kind of problem is this? Classification? Regression? Structured prediction? Reinforcement Learning? Unsupervised Learning? Etc.
+Classification – we are trying to correctly classify each house into one of six price ranges ($0–$200,000; $200,001–$400,000; $400,001–$600,000; $600,001–$800,000; $800,001–$1,000,000; $1,000,001+)
+ 
+Related Work: Are you aware of any, or is there any prior work that you drew on to do your project?
+House Price Prediction using deep learning. This paper implements a multiple linear regression algorithm to predict house prices given a variety of variables including bedrooms, house size, zip code, age etc. 
+House Price Prediction using deep learning. This implementation also uses linear regression to predict prices and attempts to draw correlations between different variables of houses and its price.
+Other papers which resemble ours:
+Predicting property prices with machine learning algorithms
+Housing Price Prediction via Improved Machine Learning Techniques
+
+Data: What data are you using (if any)?
+If you’re using a standard dataset (e.g. MNIST), you can just mention that briefly. Otherwise, say something more about where your data come from (especially if there’s anything interesting about how you will gather it).
+Dataset on US housing values
+How big is it? Will you need to do significant preprocessing?
+Big (need exact # of columns & rows)
+We will have to do a decent amount of preprocessing (one hot encoding categorical values) and for training we will need to convert numerical prices into categorical ranges of prices (since we are doing classification)
+Also might need to deal with missing values and might need to add dummy features to the model
+Might need to scale the data
+Methodology: What is the architecture of your model?
+How are you training the model?
+Will pass through a series of keras dense layers
+Begin with an adam optimizer but experiment with others
+Maybe use keras regression, as outlined in the papers mentioned previously
+If you are implementing an existing paper, detail what you think will be  the hardest part about implementing the model here.
+Pre processing seems like it may take a bit of time
+Also tuning the hyperparameters to get the best performance for our model
+Finding the correct batch sizes 
+If you are doing something new, justify your design. Also note some backup ideas you may have to experiment with if you run into issues.
+We will compare multiple deep learning models to see which works best. 
+Metrics: 
+What constitutes “success?”
+In our eyes, “success” would entail creating a model that correctly classifies each house according to its price range with >90% accuracy.
+What experiments do you plan to run?
+First, we plan to run various regression, covariability, and heterogeneity tests to better understand which variables are most instrumental in explaining house price. Based on these observations, we will train & test our classifier model. Then, we plan to continue iterating on the design of our classifier model such that we reach the highest possible accuracy. We will also study all instances of Type 1 and Type 2 error to help inform what changes may be necessary.
+For most of our assignments, we have looked at the accuracy of the model. Does the notion of “accuracy” apply for your project, or is some other metric more appropriate?
+Yes, accuracy applies in our case as well. 
+If you are doing something new, explain how you will assess your model’s performance.
+Since we are solving a classification problem, we can measure the accuracy by calculating the percentage of our test data that was correctly classified. Again, we are trying to correctly classify each house into one of six price ranges ($0–$200,000; $200,001–$400,000; $400,001–$600,000; $600,001–$800,000; $800,001–$1,000,000; $1,000,001+). Thus, we can measure the accuracy of the model for each of these six ranges.
+What are your base, target, and stretch goals?
+Base: Build a classifier model that achieves >50% accuracy across all 6 price ranges
+Target: Build a classifier model that achieves >70% accuracy across all 6 price ranges
+Stretch: Build a classifier model that achieves >90% accuracy across all 6 price ranges
+ 
+Ethics:
+What broader societal issues are relevant to your chosen problem space? What is your dataset? Are there any concerns about how it was collected, or labeled? Is it representative? What kind of underlying historical or societal biases might it contain?
+According to study of price discrimination in the housing market, Black and Hispanic homebuyers pay premiums of around 3 percent on average across the four cities. The differences are not explained by variation in buyer income, wealth or access to credit. Similarly, they do not differ significantly with the racial composition of the neighborhood or, most strikingly, the race of the seller. Other studies similarly reveal evidence of similar racial and ethnic price discrimination in the housing market.
+Our model cannot account for racial and ethnic discrimination in the housing markets and thus predicted house prices will not be accurate for all house buyers.
+In the same vein, there is growing evidence that race plays a role in real estate appraisals and homes in neighborhoods of color are undervalued. The dataset does not account for the racial or ethnic makeup for neighborhoods and the effect this will have on house prices. More broadly, housing price is deeply intertwined with the history of segregation and discrimination in America. Excluding this variable from our data and dataset raises ethical questions about the output and value of our model.
+ 
+Why is Deep Learning a good approach to this problem
+Deep learning CNNs have been used successfully and efficiently for classification and prediction problems. Given the large size of our data set, the complexity of the data, and difficulty in making assumptions, deep learning works better than alternatives like hidden markov models or state vector machines.
+Additionally, this problem provides us with the opportunity to compare different deep learning techniques and find one that optimizes accuracy.
+ 
+Division of labor: 
+kpadh: model, presentation
+aparik15: pre-processing, presentation
+cferna12: model, poster
